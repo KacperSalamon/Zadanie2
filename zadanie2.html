@@ -73,18 +73,8 @@
                 const error = document.getElementById("error").classList.remove("hidden");
             }
 
-            send.addEventListener("click", event =>{
-                let name = inputName.value;
-                let author = inputAuthor.value;
-    
-                if(name !="" && author!=""){
-                    localStorage.setItem(name, author);
-                    
-    
-                }else{
-                    alert("puste");
-                }
-            });
+            localStorage.setItem("inputName",inputName);
+            localStorage.setItem("inputAuthor",inputAuthor);
     
             
         });
