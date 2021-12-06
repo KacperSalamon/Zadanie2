@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="zadanie2.css">
+    <title>Formularze</title>
+</head>
+<body>
+    <form id="myForm" name="myForm">
+        <label for="inputName">Nazwa książki</label>
+        <input id="inputName" name="inputField" type="text" required />
+        <div id="error" class="hidden">Tytuł książki nie mogą być krótsze niż 1 znaki!</div>
+        <label for="inputAuthor">Autor książki</label>
+        <input id="inputAuthor" name="authorField" type="text" />
+        <div id="error" class="hidden">Dane autora nie mogą być krótsze niż 3 znaki!</div>
+        <br>
+        <p>Proszę wybrać priorytet przeczytania</p>
+        <select id="dropdown">
+            <option value="option1">1</option>
+            <option value="option2">2</option>
+            <option value="option3">3</option>
+            <option value="option4">4</option>
+            <option value="option5">5</option>
+        </select>
+        
+        <label for="check1"><input type="checkbox" id="check1" name="checkbox1"checked>Historyczne</label>
+        
+        <label for="check2"><input type="checkbox" id="check2" name="checkbox2">Horrory</label>
+        
+        <label for="check3"><input type="checkbox" id="check3" name="checkbox3"checked>Sensacyjne</label>
+       
+        <button id="send">Dodaj książkę do biblioteki</button>
+    </form>
+    <script>
+        
+        
+    
+        document.forms[0].addEventListener("submit", (event) => {
+            
+            event.preventDefault();
+            
+        
+            const data = new FormData(document.getElementById("myForm"));
+
+           
+            for (let field of data.entries()) {
+              console.log(field)
+            }
+
+            const send = document.getElementById("send");
+            
+            const inputName = document.getElementById("inputName").value;
+
+            const inputAuthor = document.getElementById("inputAuthor").value;
+
+            const dropdown = document.getElementById("dropdown").value;
+
+            const check1 = document.getElementById("check1").checked;
+
+            const check2 = document.getElementById("check2").checked;
+
+            const check3 = document.getElementById("check3").checked;
+            
+
+           
+            if (inputAuthor.length < 3) {
+                const error = document.getElementById("error").classList.remove("hidden");
+            }
+
+            if (inputName.length < 1) {
+                const error = document.getElementById("error").classList.remove("hidden");
+            }
+
+            send.addEventListener("click", event =>{
+                let name = inputName.value;
+                let author = inputAuthor.value;
+    
+                if(name !="" && author!=""){
+                    localStorage.setItem(name, author);
+                    
+    
+                }else{
+                    alert("puste");
+                }
+            });
+    
+            
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+body {
+    background-color: seashell;
+}
+
+input[type=text] {
+    border: none;
+    border-bottom: 3px solid salmon;
+    background-color: seashell
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+form > * {
+    margin: 10px 10px;
+}
+
+#error {
+    color: red;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    background-color: seagreen;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 16px 32px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: salmon;
+    color: #000;
+    transition: .7s;
+}
